@@ -5,7 +5,7 @@ device: "cuda:0"
 init:
 acoustic_input_size:
 visual_input_size:
-aux_ctc:
+aux_ctc: {}
 
 # acoustic frontend related
 acoustic_frontend: default

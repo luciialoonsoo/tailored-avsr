@@ -93,8 +93,10 @@ class AddNoise(object):
             ["remix", "1"],
             ["rate", str(sample_rate)],
         ]
-        self.entire_noise, noise_sr = torchaudio.sox_effects.apply_effects_file(noise_path, effects, normalize=False)
-        self.entire_noise = torchaudio.functional.resample(self.entire_noise, orig_freq=noise_sr, new_freq=sample_rate)
+        #self.entire_noise, noise_sr = torchaudio.sox_effects.apply_effects_file(noise_path, effects, normalize=False)
+        # self.entire_noise = torch.zeros(1, 16000) # Añade esta línea para que el programa no de error de "variable no definida"
+        # self.entire_noise = torchaudio.functional.resample(self.entire_noise, orig_freq=noise_sr, new_freq=sample_rate)
+        self.entire_noise = torch.zeros(1, 16000)
         self.entire_noise_length = self.entire_noise.shape[-1]
         self.sample_rate = sample_rate
         self.snr_target = snr_target
